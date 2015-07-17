@@ -1,0 +1,6 @@
+.DS_Store
+node_modules
+<<<<<<< HEAD
+quiz.sqlite
+=======
+>>>>>>> bd31f4ea502a00c57c955867237186b5164c4404
