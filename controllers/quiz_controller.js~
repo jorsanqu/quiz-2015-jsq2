@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var models = require('../models/models.js');
 
 // GET /quizes/question
@@ -6,38 +5,22 @@ exports.question = function(req, res){
    models.Quiz.findAll().success(function(quiz) {
 	res.render('quizes/question', {pregunta: quiz[0].pregunta});
    })
-=======
-// GET /quizes/question
-exports.question = function(req, res){
-	res.render('quizes/question', {pregunta: 'Capital de Italia'});
->>>>>>> bd31f4ea502a00c57c955867237186b5164c4404
 };
 
 
 // GET /quizes/answer
 exports.answer = function(req, res){
-<<<<<<< HEAD
    models.Quiz.findAll().success(function(quiz) {
 	if (req.query.respuesta === quiz[0].respuesta){
-=======
-	if (req.query.respuesta === 'Roma'){
->>>>>>> bd31f4ea502a00c57c955867237186b5164c4404
 		res.render('quizes/answer', {respuesta: 'Correcto'});	
 	} else{
 		res.render('quizes/answer', {respuesta: 'Incorrecto'});	
 	}
-<<<<<<< HEAD
    })
-=======
->>>>>>> bd31f4ea502a00c57c955867237186b5164c4404
 };
 
 // GET /author
 exports.author = function(req, res){
-<<<<<<< HEAD
 	res.render('author', {author: 'Jorge Sánchez'});
-=======
-	res.render('author', {autor: 'Jorge Sánchez'});
->>>>>>> bd31f4ea502a00c57c955867237186b5164c4404
 };
 
