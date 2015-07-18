@@ -9,7 +9,7 @@
 			<%= author %> <p>
 
 		<h2>Imagen</h2>
-	<img src="../public/images/imagen.jpeg" alt="Imagen autor">  <p>
+	<img src="/images/imagen.jpeg" alt="Imagen autor">  <p>
 
 
 	</body>
