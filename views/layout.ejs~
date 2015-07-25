@@ -21,11 +21,29 @@
 
 		<nav class="main" id="n1" role="navigation">
 			<span><a href="/">Inicio</a></span>
-			<span><a href="/quizes/question">Preguntas</a></span>
+			<span><a href="/quizes">Preguntas</a></span>
 			<span><a href="/author">Créditos</a></span>
 		</nav>
 		
 		<section class="main" id"s1">
+
+				                        <% console.log(errors[0].message) %>
+				                        <% console.log(errors.length) %>
+
+
+                        <% if (errors.length) { %>  
+                           <span id='ErrorMsgs'> 
+                             Corregir errores: </br>
+                             <% for (var i in errors) { %>  
+
+					                        <% console.log("Variable i: " + i) %>
+								<% errors[i].message %>
+
+                                <span> <%= errors[i].message %> </span></br>
+                             <% } %>  
+                            </span>   
+                        <% } %>  
+ 
 			<div><%- body%></div>
 		</section>
 
