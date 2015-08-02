@@ -28,7 +28,6 @@ exports.show = function(req, res){
 	res.render('quizes/show', {quiz: req.quiz, errors: [] });
 };
 
-
 // GET /quizes/:id/answer
 exports.answer = function(req, res){
         var resultado = 'Incorrecto';
@@ -106,6 +105,6 @@ exports.destroy = function(req, res) {
 
 // GET /author
 exports.author = function(req, res){
-	res.render('author', {author: 'Jorge Sánchez'});
+	res.render('author', {author: 'Jorge Sánchez', errors: [] });
 };
 
