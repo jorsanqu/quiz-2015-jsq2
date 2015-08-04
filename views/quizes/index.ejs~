@@ -11,7 +11,7 @@
                                   <tr>
                                        <td> 
                                             <a href="<%= aux %>"><%= quizes[i].pregunta %></a>
-                                            --> <%= quizes[i].tema %> 
+                                            >Categoría --> <%= quizes[i].tema %> 
                                        </td>
                                        <td><a href="/quizes/<%= quizes[i].id %>/edit"><button>editar</button></a></td>
                                        <td> 

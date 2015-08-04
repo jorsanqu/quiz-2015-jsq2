@@ -27,7 +27,7 @@ exports.create = function(req, res) {
 
        res.redirect(req.session.redir.toString()); // redirección a path anterior a login
 
-    };
+    });
 };
 
 // DELETE /logout -- Destruir sesión
