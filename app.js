@@ -40,6 +40,17 @@ app.use(function(req,res,next) {
 
    // Hacer visible req.session en las vistas
    res.locals.session = req.session;
+
+   // Controlar tiempo transcurrido entre llamadas para logout automático
+   if(req.session.user) {
+        var aux_routes_difftime = 0;
+
+	req.session.tlogout.t1 = new Date(req.session.tlogout.t2); // La diferencia es desde la última transacción.
+        req.session.tlogout.t2 = new Date();
+	aux_routes_difftime = (req.session.tlogout.t2 - req.session.tlogout.t1)/1000;
+        if (aux_routes_difftime > 120) {res.redirect('/logout')}
+   };
+   
    next(); 
 });
 

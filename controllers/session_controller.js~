@@ -1,3 +1,13 @@
+//MW de autorización de accesos HTTP restringidos
+exports.loginRequired = function(req,res,next){
+   if (req.session.user) {
+       next();
+   } else {
+       res.redirect('/login');
+   }
+};
+
+
 // GET /login -- Formulario de login
 exports.new = function(req, res){
    var errors = req.session.errors || {};
@@ -24,6 +34,13 @@ exports.create = function(req, res) {
        //Crear req.session.user y guardar campos id y username
        //La sesión se define por la existencia de:  req.session.user
        req.session.user = {id:user.id, username:user.username};
+
+       // Se añade control de timeout de sesión inicial
+       req.session.tlogout = {};    // Hay que ir creando los niveles de anidación por orden.
+       req.session.tlogout.t1 = new Date();
+       req.session.tlogout.t2 = new Date();
+console.log(" t1 inicial = " + req.session.tlogout.t1/1000);
+console.log(" t2 inicial = " + req.session.tlogout.t2/1000);
 
        res.redirect(req.session.redir.toString()); // redirección a path anterior a login
 
