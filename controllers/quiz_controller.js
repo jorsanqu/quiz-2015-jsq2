@@ -103,6 +103,21 @@ exports.destroy = function(req, res) {
    }).catch(function(error){next(error)});
 };
 
+// GET /quizes/search
+exports.search = function(req, res){
+
+   var aux_search = "";
+   aux_search = '%' + req.query.search.replace(/\s+/igm,"%") + '%';
+
+   models.Quiz.findAll({
+          where:  ["pregunta like ?",aux_search] 
+         }
+    ).then(function(quizes) {
+	res.render('quizes/index', { quizes:quizes, errors: [] });
+   }).catch(function(error) { next(error);})
+};
+
+
 // GET /author
 exports.author = function(req, res){
 	res.render('author', {author: 'Jorge Sánchez', errors: [] });

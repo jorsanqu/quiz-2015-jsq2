@@ -28,7 +28,6 @@ exports.show = function(req, res){
 	res.render('quizes/show', {quiz: req.quiz, errors: [] });
 };
 
-
 // GET /quizes/:id/answer
 exports.answer = function(req, res){
         var resultado = 'Incorrecto';
@@ -104,8 +103,25 @@ exports.destroy = function(req, res) {
    }).catch(function(error){next(error)});
 };
 
+// GET /quizes/search
+exports.search = function(req, res){
+
+     console.log("req:" + req.query.search);
+   var aux_search = "";
+   aux_search = '%' + req.query.search.replace(/\s+/igm,"%") + '%';
+     console.log("req2:" + aux_search);
+
+   models.Quiz.findAll({
+          where:  ["pregunta like ?",aux_search] //req.search
+         }
+    ).then(function(quizes) {
+	res.render('quizes/index', { quizes:quizes, errors: [] });
+   }).catch(function(error) { next(error);})
+};
+
+
 // GET /author
 exports.author = function(req, res){
-	res.render('author', {author: 'Jorge Sánchez'});
+	res.render('author', {author: 'Jorge Sánchez', errors: [] });
 };
 
